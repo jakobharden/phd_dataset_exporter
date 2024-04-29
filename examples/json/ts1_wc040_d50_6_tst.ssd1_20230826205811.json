@@ -1,0 +1,145 @@
+{
+  "ts1_wc040_d50_6_tst.ssd1" : {
+    "obj" : "struct_test_ssd1",
+    "ver" : [1, 0],
+    "r01" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "author",
+      "d" : "author reference",
+      "i" : 1,
+      "r" : ["aut"]
+    },
+    "r02" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "specimen",
+      "d" : "specimen reference",
+      "i" : 1,
+      "r" : ["spm"]
+    },
+    "r03" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "device",
+      "d" : "device reference",
+      "i" : 24,
+      "r" : ["dev"]
+    },
+    "r04" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "location",
+      "d" : "location reference",
+      "i" : 1,
+      "r" : ["loc"]
+    },
+    "d01" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "datetime",
+      "d" : "date and time, seconds since epoch (UTC)",
+      "vt" : "dbl",
+      "u" : "utc",
+      "v" : 0.0000000000000000
+    },
+    "d02" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "specimen_weight",
+      "d" : "specimen weight, measurement result",
+      "vt" : "dbl",
+      "u" : "g",
+      "v" : 1051.2999999999999545
+    },
+    "d03" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "floating_specimen_weight",
+      "d" : "floating specimen weight, measurement result",
+      "vt" : "dbl",
+      "u" : "g",
+      "v" : 517.0000000000000000
+    },
+    "d04" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "water_temperature",
+      "d" : "water temperature of water basin, measurement result or estimation based on environment temperature",
+      "vt" : "dbl",
+      "u" : "°C",
+      "v" : 20.0000000000000000
+    },
+    "d05" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "water_density",
+      "d" : "density of water in basin, calculated value",
+      "vt" : "dbl",
+      "u" : "g/cm^3",
+      "v" : 0.9982030000000000
+    },
+    "d06" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "water_weight_displaced",
+      "d" : "weight of displaced water, calculated value",
+      "vt" : "dbl",
+      "u" : "g",
+      "v" : 534.2999999999999545
+    },
+    "d07" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "specimen_volume",
+      "d" : "specimen volume, calculated value",
+      "vt" : "dbl",
+      "u" : "cm^3",
+      "v" : 535.2618655724336350
+    },
+    "d08" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "specimen_density",
+      "d" : "specimen density, calculated value",
+      "vt" : "dbl",
+      "u" : "g/cm^3",
+      "v" : 1.9640853713269699
+    },
+    "a01" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "testname",
+      "d" : "test name",
+      "v" : "Solid specimen density test 1 (gravimetric, immersion weighing)"
+    },
+    "a02" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "operator",
+      "d" : "operator name",
+      "v" : "Jakob Harden (jakob.harden@tugraz.at)"
+    },
+    "a03" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "procedure",
+      "d" : "procedure description",
+      "v" : ["(1) remove loose parts from specimen edges", "(2) tare balance", "(3) weigh dry mass of specimen", "(4) lower basket into the water container and attach it to the balance", "(5) tare balance", "(6) put specimen on basket, make sure that it is completely covered with water", "(7) wait until air bubbles have disappeared from the specimen surface and it is hanging quietly in the water", "(8) weigh floating mass of specimen"]
+    },
+    "a04" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "calculation",
+      "d" : "calculation description, formula",
+      "v" : ["specimen_density = specimen_weight / specimen_volume", "specimen_volume = water_density / water_weight_displaced", "water_density = hlp_density_water(water_temperature), see function file struct_hdf/struct_test_ssd1.m", "water_weight_displaced = specimen_weight - floating_specimen_weight"]
+    },
+    "a05" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description",
+      "d" : "general description",
+      "v" : "Compression wave measurement, mold I"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "ts1_wc040_d50_6_meta_ser" : {
+    "obj" : "struct_metaser",
+    "ver" : [1, 0],
+    "r01" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "author",
+      "d" : "author reference",
+      "i" : 1,
+      "r" : ["aut"]
+    },
+    "r02" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "license",
+      "d" : "license reference",
+      "i" : 2,
+      "r" : ["lic"]
+    },
+    "d01" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "series_id",
+      "d" : "test series id",
+      "vt" : "uint",
+      "u" : null,
+      "v" : 1
+    },
+    "a01" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "series_code",
+      "d" : "test series code",
+      "v" : "ts1"
+    },
+    "a02" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "series_name",
+      "d" : "test series name",
+      "v" : "Test series 1"
+    },
+    "a03" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description",
+      "d" : "test series description",
+      "v" : "Ultrasonic pulse transmission tests performed on cement pastes at early stages"
+    },
+    "a04" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "abstract",
+      "d" : "test series abstract",
+      "v" : "The test series was created to receive information about the material behaviour of cement pastes at early stages. The approach for this test series was to vary the parameters water-cement-ratio and distance-between-actuator-and-sensor. This results in a two-dimensional test parameter grid (water-cement-ratio versus distance-between-actuator-and-sensor). For each point of the parameter grid, tests were performed several times to check the stability of the testing method. The materials tested were blends from ordinary Portland cement and tap water. The test methods used were ultrasonic pulse transmission method with combined compression- and shear wave measurements, gravimetric density tests (fresh paste density, solid specimen density) and hydration temperature tests. All test data and metadata are summarized into datasets using GNU octave's open binary file format."
+    },
+    "a05" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "context",
+      "d" : "test series context",
+      "v" : "Test series 1 is part of the PhD thesis of Jakob Harden"
+    },
+    "a06" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "date_start",
+      "d" : "test series start date",
+      "v" : "2020-03-10"
+    },
+    "a07" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "date_end",
+      "d" : "test series end date",
+      "v" : "2021-03-30"
+    }
+  }
+}

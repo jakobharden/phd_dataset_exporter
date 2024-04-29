@@ -1,0 +1,136 @@
+% Minimal working application example
+%
+% Copyright 2023 Jakob Harden (jakob.harden@tugraz.at, Graz University of Technology, Graz, Austria)
+% License: MIT
+% This file is part of the PhD thesis of Jakob Harden.
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
+% documentation files (the “Software”), to deal in the Software without restriction, including without 
+% limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of 
+% the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+% 
+% THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+% THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+%
+% preamble, set document class and import packages
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[backend=bibtex,style=numeric,sorting=none]{biblatex}
+\addbibresource{example.bib}
+
+% import additional commands (see also: oct2texdefs.tex)
+\input{oct2texdefs}
+
+% title page settings
+\title{Minimal working application example}
+\author{Jakob Harden${}^\dag$\\${}^\dag$Graz University of Technology (Graz, Austria)}
+\date{August 26${}^{\text{th}}$, 2023}
+
+% begin document body
+\begin{document}
+
+	% print title page with abstract
+	\maketitle
+	
+	% print abstract
+	\begin{abstract}
+		This document contains an application example that clearly shows the use of exported data in \LaTeX{} documents. In particular, how to use and print metadata, ultrasonic signal data and temperature measurements.
+	\end{abstract}
+	
+	% begin with content on a new page
+	\newpage
+
+	% import serialized test series metadata
+	\input{ts1_wc040_d50_6_meta_ser}
+	
+	% import serialized dataset metadata
+	\input{ts1_wc040_d50_6_meta_set}
+	
+	% import serialized environment/ambient temperature test data
+	\input{ts1_wc040_d50_6_tst.env}
+	
+	% set default variable name prefix
+	% this makes the variable names which are the data structure paths much shorter
+	\OTsetpfx{oct2tex.ts1_wc040_d50_6}
+	
+	% use test series metadata
+	The dataset used in this example is included in \textcolor{red}{\OTuse{meta_ser.a02.v}}\cite{datacem}.
+	% use dataset metadata
+	The code of the dataset is \textcolor{red}{\OTuse{meta_set.a01.v}}.
+	% use test data
+	The ambient temperature before the start of the ultrasonic pulse transmission test was: \textcolor{red}{\OTusefixed{tst.env.d02.v}{2} \OTuse{tst.env.d02.u}}
+	
+	\paragraph{Ultrasonic signal data:} The following graph shows the signal response of a compression wave and a shear wave at a maturity of 24 hours.
+	
+	% plot signal data
+	\begin{figure}[ht]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[%
+				xlabel={Time [$\mu sec$]},%
+				ylabel={Magnitude [V]},%
+				width=12cm, height=5.5cm,%
+				grid]
+				% read signal data of compression wave (table is stored in variable \OTtabcsv)
+				\OTreadcsv{ts1_wc040_d50_6_sig_c.csv}
+				% x expr: scale unit, seconds to micro-seconds
+				% plot compression wave
+				\addplot[thick,red] table [x expr={\thisrowno{1}*1000000}, y index={2}] {\OTtabcsv};
+				% read signal data of shear wave (table is stored in variable \OTtabcsv)
+				\OTreadcsv{ts1_wc040_d50_6_sig_s.csv}
+				% plot shear wave
+				\addplot[thick,blue] table [x expr={\thisrowno{1}*1000000}, y index={2}] {\OTtabcsv};
+				\legend{C, S};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Compression (C) and shear (S) wave at a specimen maturity of 24 hours.}
+	\end{figure}
+	
+	\paragraph{Specimen temperature data:} The following graph shows the evolution of the specimen temperature within the first 24 hours of the hydration process.
+	
+	% plot signal data
+	\begin{figure}[ht]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[%
+				xlabel={Maturity [min]},%
+				ylabel={Temperature [${}^\circ C$]},%
+				width=12cm, height=5.5cm,%
+				grid]
+				% setup tick labels
+				\pgfkeys{%
+					/pgf/number format/.cd,%
+					fixed,%
+					precision=1,%
+					1000 sep={}%
+				}
+				% read temperature data (table is stored in variable \OTtabcsv)
+				\OTreadcsv{ts1_wc040_d50_6_tem_t1-t4.csv}
+				% x expr: scale unit, seconds to minutes
+				% plot channel 1
+				\addplot[thick,red] table [x expr={\thisrowno{1}/60}, y index={2}] {\OTtabcsv};
+				% plot channel 2
+				\addplot[thick,green] table [x expr={\thisrowno{1}/60}, y index={3}] {\OTtabcsv};
+				% plot channel 3
+				\addplot[thick,blue] table [x expr={\thisrowno{1}/60}, y index={4}] {\OTtabcsv};
+				% plot channel 4
+				\addplot[thick,black] table [x expr={\thisrowno{1}/60}, y index={5}] {\OTtabcsv};
+				\legend{$T1$, $T2$, $T3$, $T4$};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Specimen temperatures and ambient temperature. Legend: $T1$~\ldots~channel 1 (specimen); $T2$~\ldots~channel 2 (specimen); $T3$~\ldots~channel 3 (specimen); $T4$~\ldots~channel 4 (ambient air)}
+	\end{figure}
+	
+	% Print references
+	\printbibliography
+	
+% end document body
+\end{document}

@@ -1,0 +1,127 @@
+{
+  "ts1_wc040_d50_6_tst.fpd" : {
+    "obj" : "struct_test_fpd",
+    "ver" : [1, 0],
+    "r01" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "author",
+      "d" : "author reference",
+      "i" : 1,
+      "r" : ["aut"]
+    },
+    "r02" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "mixture",
+      "d" : "mixture reference",
+      "i" : 1,
+      "r" : ["mix"]
+    },
+    "r03" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "device",
+      "d" : "device reference",
+      "i" : 262934,
+      "r" : ["dev"]
+    },
+    "r04" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "location",
+      "d" : "location reference",
+      "i" : 1,
+      "r" : ["loc"]
+    },
+    "d01" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "datetime",
+      "d" : "date and time, seconds since epoch (UTC)",
+      "vt" : "dbl",
+      "u" : "utc",
+      "v" : 0.0000000000000000
+    },
+    "d02" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "beaker_volume",
+      "d" : "beaker volume",
+      "vt" : "dbl",
+      "u" : "cm^3",
+      "v" : 1000.0000000000000000
+    },
+    "d03" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "gross_weight",
+      "d" : "gross weight, measurement result",
+      "vt" : "dbl",
+      "u" : "g",
+      "v" : 2381.4000000000000909
+    },
+    "d04" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "beaker_weight",
+      "d" : "beaker weight, net weight, measurement result",
+      "vt" : "dbl",
+      "u" : "g",
+      "v" : 466.1999999999999886
+    },
+    "d05" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "specimen_weight",
+      "d" : "specimen weight, calculated value",
+      "vt" : "dbl",
+      "u" : "g",
+      "v" : 1915.2000000000000455
+    },
+    "d06" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "specimen_density",
+      "d" : "specimen density, calculated value",
+      "vt" : "dbl",
+      "u" : "g/cm^3",
+      "v" : 1.9152000000000000
+    },
+    "a01" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "testname",
+      "d" : "test name",
+      "v" : "Fresh paste density test"
+    },
+    "a02" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "operator",
+      "d" : "operator name",
+      "v" : "Jakob Harden (jakob.harden@tugraz.at)"
+    },
+    "a03" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "procedure",
+      "d" : "procedure description",
+      "v" : ["(1) moist inner surface of graduated beaker using a wet towel", "(2) pour paste in beaker, fill beaker to approx. half height", "(3) shake beaker for approx. 10 sec (vertical movements)", "(4) pour paste in beaker, fill to top edge", "(5) shake beaker for approx. 10 sec (vertical movements)", "(6) assure that beaker is fully filled (plus 2-3 mm over the top edge)", "(7) scrape off excess material along the beaker edge with a trowel", "(8) tare balance", "(9) measure gross weight (beaker plus paste)"]
+    },
+    "a04" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "calculation",
+      "d" : "calculation description, formula",
+      "v" : ["specimen_density = specimen_weight / beaker_volume", "specimen_weight = gross_weight - beaker_weight"]
+    },
+    "a05" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description",
+      "d" : "general description",
+      "v" : "No additional information available"
+    }
+  }
+}

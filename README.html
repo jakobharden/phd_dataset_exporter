@@ -1,0 +1,260 @@
+<h1>Dataset Exporter, version 1.0</h1>
+
+<p>The <strong>Dataset Exporter</strong> is a script collection that allows exporting data from datasets made from measurement data of ultrasonic pulse transmission tests. The entire script collection was conceived, implemented and tested by Jakob Harden using the scientific numerical programming language of GNU Octave 6.2.0. The main features cover the export of substructures to variables and the serialization to the CSV format, the JSON structure format and TeX code.</p>
+
+<h2>Table of contents</h2>
+
+<ul>
+<li>Licence</li>
+<li>Prerequisites</li>
+<li>Directories and files</li>
+<li>Installation instructions</li>
+<li>Usage instructions</li>
+<li>Help</li>
+<li>Related data sources</li>
+<li>Related software</li>
+<li>Revision and release history</li>
+</ul>
+
+<h2>Licence</h2>
+
+<p>All files published under the <strong>DOI 10.3217/9adsn-8dv64</strong> are licenced under the <a href="https://opensource.org/license/mit/">MIT licence</a>.</p>
+
+<pre><code>Copyright 2023 Jakob Harden (jakob.harden@tugraz.at, Graz University of Technology, Graz, Austria)
+License: MIT
+This file is part of the PhD thesis of Jakob Harden.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+documentation files (the “Software”), to deal in the Software without restriction, including without
+limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</code></pre>
+
+<h2>Prerequisites</h2>
+
+<p>To be able to use the scripts, GNU Octave 6.2.0 (or a higher version) need to be installed.
+GNU Octave is available via the package management system on many Linux distributions. Windows users have to download the Windows version of GNU Octave and to install the software manually.</p>
+
+<p><a href="https://octave.org/download">GNU Octave download</a></p>
+
+<h2>Directory and file structure</h2>
+
+<p>All scripts files (*.m) are plain text files written in the scientific programming language of GNU Octave 6.2.0.</p>
+
+<p><code>
+   dsexporter/ <br />
+   ├── dsexporter_examples.m <br />
+   ├── dsexporter_settings.m <br />
+   ├── dsexporter_sig2csv.m <br />
+   ├── dsexporter_substruct2json.m <br />
+   ├── dsexporter_substruct2tex.m <br />
+   ├── dsexporter_substruct.m <br />
+   ├── dsexporter_tem2csv.m <br />
+   ├── examples <br />
+   │   ├── csv <br />
+   │   ├── json <br />
+   │   ├── latex <br />
+   │   └── tex <br />
+   ├── init.m <br />
+   ├── json <br />
+   │   ├── json_property.m <br />
+   │   ├── json_settings.m <br />
+   │   ├── json_struct_export.m <br />
+   │   ├── json_struct.m <br />
+   │   ├── json_struct_objattrib.m <br />
+   │   ├── json_struct_objdata.m <br />
+   │   ├── json_struct_objref.m <br />
+   │   ├── json_val_array.m <br />
+   │   ├── json_val_matrix.m <br />
+   │   └── json_val_scalar.m <br />
+   ├── README.html <br />
+   ├── README.md <br />
+   ├── struct <br />
+   │   ├── struct_objattrib.m <br />
+   │   ├── struct_objdata.m <br />
+   │   └── struct_objref.m <br />
+   ├── tex <br />
+   │   ├── tex_def_csvarray.m <br />
+   │   ├── tex_def_dotarray.m <br />
+   │   ├── tex_def_scalar.m <br />
+   │   ├── tex_def_tabarray.m <br />
+   │   ├── tex_def_tabmatrix.m <br />
+   │   ├── tex_serialize.m <br />
+   │   ├── tex_settings.m <br />
+   │   ├── tex_struct_export.m <br />
+   │   ├── tex_struct.m <br />
+   │   ├── tex_struct_objattrib.m <br />
+   │   ├── tex_struct_objdata.m <br />
+   │   └── tex_struct_objref.m <br />
+   ├── tmp <br />
+   └── tools <br />
+       ├── tool_get_maturity.m <br />
+       ├── tool_gui_dsload.m <br />
+       ├── tool_gui_selchn.m <br />
+       ├── tool_gui_selsig.m <br />
+       ├── tool_gui_selsub.m <br />
+       └── tool_gui_seltem.m
+</code></p>
+
+<ul>
+<li>init.m ... function file, Initialize program: Dataset Exporter, version 1.0</li>
+<li>dsexporter_examples.m ... function file, Export selected signal data to CSV file (compression- or shear wave signals)</li>
+<li>dsexporter_settings.m ... function file, Return data structure containing the dataset export settings</li>
+<li>dsexporter_sig2csv.m ... function file, Export selected signal data to CSV file (compression- or shear wave signals)</li>
+<li>dsexporter_tem2csv.m ... function file, Export selected temperature data to CSV file (specimen temperature tests)</li>
+<li>dsexporter_substruct.m ... function file, Export a dataset substructure to a variable</li>
+<li>dsexporter_substruct2json.m ... function file, Export a dataset substructure to a file in JSON structure format</li>
+<li>dsexporter_substruct2tex.m ... function file, Export often used dataset substructures to TeX code</li>
+<li>README.html ... HTML version of this file</li>
+<li>README.md ... this file</li>
+<li><strong>examples</strong> ... directory, various examples for exported data (CSV, JSON, LaTeX, TeX)
+<ul>
+<li><strong>examples/csv</strong> ... subdirectory, examples for CSV exports created with function file <em>dsexporter_examples.m</em></li>
+<li><strong>examples/json</strong> ... subdirectory, examples for JSON exports created with function file <em>dsexporter_examples.m</em></li>
+<li><strong>examples/latex</strong> ... subdirectory, examples for LaTeX exports created with function file <em>dsexporter_examples.m</em></li>
+<li>examples/latex/example.bib, TeX bibliography, bibliography file, minimal working LaTeX export example</li>
+<li>examples/latex/example.pdf, Portable Document Format, compiled LaTeX document, minimal working LaTeX export example</li>
+<li>examples/latex/example.tex, TeX code, main LaTeX document, minimal working LaTeX export example</li>
+<li>examples/latex/oct2tex.tex, TeX code, data import functions, minimal working LaTeX export example</li>
+<li><strong>examples/tex</strong> ... subdirectory, examples for TeX code exports created with function file <em>dsexporter_examples.m</em></li>
+</ul></li>
+<li><strong>json</strong> ... directory, subsidiary functions used to serialize data structures to JSON objects
+<ul>
+<li>json/json_property.m ... function file, Serialize value and create JSON property</li>
+<li>json/json_settings.m ... function file, Return data structure containing the JSON serialization settings</li>
+<li>json/json_struct_export.m ... function file, Export data structure(s) to text file using te JSON structure format</li>
+<li>json/json_struct.m ... function file, Serialize data structure and data structure arrays using the JSON structure format</li>
+<li>json/json_struct_objattrib.m ... function file, Serialize atomic attribute element (AAE)</li>
+<li>json/json_struct_objdata.m ... function file, Serialize atomic data element (ADE)</li>
+<li>json/json_struct_objref.m ... function file, Serialize atomic reference element (ARE)</li>
+<li>json/json_val_array.m ... function file, Serialize array value</li>
+<li>json/json_val_matrix.m ... function file, Serialize matrix value</li>
+<li>json/json_val_scalar.m ... function file, Serialize scalar value</li>
+</ul></li>
+<li><strong>struct</strong> ... directory, function files used to create low-level structure elements
+<ul>
+<li>struct/struct_objattrib ... function file, Create attribute object (atomic attribute element, AAE)</li>
+<li>struct/struct_objdata ... function file, Create data object (atomic data element, ADE)</li>
+<li>struct/struct_objref ... function file, Create reference object (atomic reference element, ARE)</li>
+</ul></li>
+<li><strong>tex</strong> ... directory, subsidiary functions used to serialize data structures to LaTeX code
+<ul>
+<li>tex/tex_def_csvarray.m ... function file, Serialize array variable to TeX code (comma-separated list, e.g. version numbers)</li>
+<li>tex/tex_def_dotarray.m ... function file, Serialize short array variable to TeX code (dot-separated list, e.g. structure path)</li>
+<li>tex/tex_def_scalar.m ... function file, Serialize scalar variable to TeX code</li>
+<li>tex/tex_def_tabarray.m ... function file, Serialize array to TeX code (tabulated)</li>
+<li>tex/tex_def_tabmatrix.m ... function file, Serialize matrix to TeX code (tabulated)</li>
+<li>tex/tex_serialize.m ... function file, Return data structure containing the TeX code serialization settings</li>
+<li>tex/tex_settings.m ... function file, Return data structure containing the TeX code serialization settings</li>
+<li>tex/tex_struct.m ... function file, Serialize a data structure or data structure arrays to TeX code</li>
+<li>tex/tex_struct_export.m ... function file, Export data structure(s) to TeX code file</li>
+<li>tex/tex_struct_objattrib.m ... function file, Serialize atomic attribute element to TeX code</li>
+<li>tex/tex_struct_objdata.m ... function file, Serialize atomic data element to TeX code</li>
+<li>tex/tex_struct_objref.m ... function file, Serialize atomic reference element to TeX code</li>
+</ul></li>
+<li><strong>tmp</strong> ... directory, temporary directory used to store exported files (fallback option)</li>
+<li><strong>tools</strong> ... directory, subsidiary functions called by the main program functions
+<ul>
+<li>tools/tool_gui_dsload.m ... function file, Select and load GNU Octave binary dataset file (*.oct), GUI</li>
+<li>tools/tool_gui_selchn.m ... function file, Select channel of ultrasonic pulse transmission test, GUI</li>
+<li>tools/tool_gui_selsig.m ... function file, Select signal(s) from ultrasonic pulse transmission test, GUI</li>
+<li>tools/tool_gui_selsub.m ... function file, Select substructure of dataset and return the structure path, GUI</li>
+<li>tools/tool_gui_seltem.m ... function file, Select channel of specimen temperature test, GUI</li>
+<li>tools/tool_get_maturity.m ... function file, Extract maturity time array from ultrasonic test substructure of a dataset</li>
+</ul></li>
+</ul>
+
+<h2>Installation instructions</h2>
+
+<ol>
+<li>Copy the program directory to a location of your choice. e.g. <strong>working_directory</strong>.   </li>
+<li>Open GNU Octave.   </li>
+<li>Change the working directory to the program directory. e.g. <strong>working_directory</strong>.   </li>
+</ol>
+
+<h2>Usage instructions</h2>
+
+<ol>
+<li>Adjust the settings in the function files: dsexporter_settings.m, ./json/json_settings.m, ./tex/tex_settings.m   </li>
+<li>Run GNU Octave.   </li>
+<li>Initialize program.   </li>
+<li>Execute any of the function files.   </li>
+</ol>
+
+<h3>Initialize program</h3>
+
+<p>The 'init' command initializes the program. This is only required once before executing all the other functions. The command is adding the subdirectories included in the main program directory to the 'path' environment variable.</p>
+
+<p><code>
+   octave: &gt;&gt; init;
+</code></p>
+
+<h3>Execute function file at the command line interface</h3>
+
+<p>The following commands are the main functions of the program. The function parameters are documented in the respective function files (see also section: Help).
+The functions can be used either in interactive or non-interactive mode. In interactive mode, dialog windows are used and user input is expected. That mode is always activated when necessary or all function parameters are missing.</p>
+
+<p><code>
+   octave: &gt;&gt; [ds] = dsexporter_substruct(p_ss, p_fp, p_sp); <br />
+   octave: &gt;&gt; [fp1, fp2] = dsexporter_sig2csv(p_ss, p_odp, p_ifp, p_cn, p_si, p_i0, p_i1, p_del); <br />
+   octave: &gt;&gt; [fp1, fp2] = dsexporter_tem2csv(p_ss, p_odp, p_ifp, p_tcn, p_del); <br />
+   octave: &gt;&gt; [fp] = dsexporter_substruct2json(p_ss, p_odp, p_ifp, p_dsp); <br />
+   octave: &gt;&gt; [fp] = dsexporter_substruct2tex(p_ss, p_odp, p_ifp, p_dsp); <br />
+   octave: &gt;&gt; dsexporter_examples();
+</code></p>
+
+<h2>Help</h2>
+
+<p>All function files contain an adequate function description and instructions on how to use the functions. This documentation can be displayed in the GNU Octave command line interface by entering the following command:</p>
+
+<p><code>
+   octave: &gt;&gt; help function_file_name;
+</code></p>
+
+<h2>Related data sources</h2>
+
+<p>Datasets from which data can be exported with these scripts are made available at the repository of Graz University of Technology under an open licence (Creative Commons Attribution 4.0 International, CC BY 4.0). The data records listed below contain the raw data, the compiled datasets and a technical description of the record content.</p>
+
+<h3>Data records</h3>
+
+<ul>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 1, Cement Paste at Early Stages". Graz University of Technology. <a href="https://doi.org/10.3217/bhs4g-m3z76">doi: 10.3217/bhs4g-m3z76</a>   </li>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 3, Reference Tests on Air". Graz University of Technology. <a href="https://doi.org/10.3217/ph0jm-8ax76">doi: 10.3217/ph0jm-8ax76</a>   </li>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 4, Cement Paste at Early Stages". Graz University of Technology. <a href="https://doi.org/10.3217/f62md-kep36">doi: 10.3217/f62md-kep36</a>   </li>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 5, Reference Tests on Air". Graz University of Technology. <a href="https://doi.org/10.3217/bjkrj-pg829">doi: 10.3217/bjkrj-pg829</a>   </li>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 6, Reference Tests on Water". Graz University of Technology. <a href="https://doi.org/10.3217/hn7we-q7z09">doi: 10.3217/hn7we-q7z09</a>   </li>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 7, Reference Tests on Aluminium Cylinder". Graz University of Technology. <a href="https://doi.org/10.3217/azh6e-rvy75">doi: 10.3217/azh6e-rvy75</a>   </li>
+</ul>
+
+<h2>Related software</h2>
+
+<p>The referenced datasets are compiled from raw data using a dataset compilation tool implemented in the programming language of GNU Octave 6.2.0 ("Dataset Compiler, version 1.1") . To understand the structure of the datasets, it is a good idea to look at the soure code of that tool. Therefore, it was made publicly available under the MIT licence at the repository of Graz University of Technology.</p>
+
+<p>Another tool, implemented in the programming language of GNU Octave 6.2.0, allows for plotting measurement data contained in the datasets ("Dataset viewer, version 1.0"). The main features of that script collection cover 2D plots, 3D plots and rendering MP4 video files from the measurement data contained in the datasets. It is also made publicly available under the MIT licence at the repository of Graz University of Technology.</p>
+
+<h3>Dataset Compiler, version 1.1:</h3>
+
+<ul>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Data set compiler (1.1)". Graz University of Technology. <a href="https://doi.org/10.3217/6qg3m-af058">doi: 10.3217/6qg3m-af058</a></li>
+</ul>
+
+<h3>Dataset Viewer, version 1.0:</h3>
+
+<ul>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Dataset Viewer (1.0)". Graz University of Technology. <a href="https://doi.org/10.3217/c1ccn-8m982">doi: 10.3217/c1ccn-8m982</a></li>
+</ul>
+
+<h2>Revision and release history</h2>
+
+<h3>2023-08-26, release, version 1.0</h3>
+
+<ul>
+<li>published/released version 1.0, by Jakob Harden   </li>
+<li>url: (Repository of Graz University of Technology)[https://doi.org/10.3217/9adsn-8dv64]   </li>
+<li>doi: 10.3217/9adsn-8dv64   </li>
+</ul>

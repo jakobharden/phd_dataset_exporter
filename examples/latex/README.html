@@ -1,0 +1,36 @@
+<h1>Minimal working LaTeX export example</h1>
+
+<p>This file contains the instructions needed to compile the minimal working LaTeX export example.
+The exported data used in this example is taken from the dataset "ts1_wc040_d50_6.oct", which is freely available at the following URL: <a href="https://doi.org/10.3217/bhs4g-m3z76">https://doi.org/10.3217/bhs4g-m3z76</a></p>
+
+<p>The output of the compilation process is the PDF file <em>example.pdf</em>. TeX Live was used for this application example (see also: <a href="https://tug.org/texlive/">TeX Live</a>).</p>
+
+<h2>Files</h2>
+
+<p><code>
+   latex/ <br />
+   ├── example.bib <br />
+   ├── example.pdf <br />
+   ├── example.tex <br />
+   ├── oct2texdefs.tex <br />
+   ├── README.html <br />
+   ├── README.md <br />
+   ├── ts1_wc040_d50_6_meta_ser.tex <br />
+   ├── ts1_wc040_d50_6_meta_set.tex <br />
+   ├── ts1_wc040_d50_6_sig_c.colheads <br />
+   ├── ts1_wc040_d50_6_sig_c.csv <br />
+   ├── ts1_wc040_d50_6_sig_s.colheads <br />
+   ├── ts1_wc040_d50_6_sig_s.csv <br />
+   ├── ts1_wc040_d50_6_tem_t1-t4.colheads <br />
+   ├── ts1_wc040_d50_6_tem_t1-t4.csv <br />
+   └── ts1_wc040_d50_6_tst.env.tex
+</code></p>
+
+<h2>LaTeX document compilation instructions</h2>
+
+<ol>
+<li>Run data export, function file <em>dsexporter_examples.m</em>   </li>
+<li>Open the file <em>example.tex</em> in a LaTeX IDE of your choice.   </li>
+<li>Make sure that all required LaTeX packages are installed on your system (see preamble section in <em>example.tex</em>).   </li>
+<li>Compile <em>example.tex</em> using a <em>pdflatex</em> compiler (pdflatex -synctex=1 -interaction=nonstopmode %.tex).   </li>
+</ol>

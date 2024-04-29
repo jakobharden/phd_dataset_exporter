@@ -1,0 +1,109 @@
+{
+  "ts1_wc040_d50_6_tst.umd1" : {
+    "obj" : "struct_test_umd1",
+    "ver" : [1, 0],
+    "r01" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "author",
+      "d" : "author reference",
+      "i" : 1,
+      "r" : ["aut"]
+    },
+    "r02" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "specimen",
+      "d" : "specimen reference",
+      "i" : 1,
+      "r" : ["spm"]
+    },
+    "r03" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "device",
+      "d" : "device reference",
+      "i" : 2730,
+      "r" : ["dev"]
+    },
+    "r04" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "location",
+      "d" : "location reference",
+      "i" : 1,
+      "r" : ["loc"]
+    },
+    "d01" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "datetime",
+      "d" : "date and time, seconds since epoch (UTC)",
+      "vt" : "dbl",
+      "u" : "utc",
+      "v" : 0.0000000000000000
+    },
+    "d02" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "total_distance",
+      "d" : "total distance, measurement result",
+      "vt" : "dbl",
+      "u" : "mm",
+      "v" : 54.7100000000000009
+    },
+    "d03" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "spacer_thickness",
+      "d" : "thickness of spacer disks, steel washer, measurement result",
+      "vt" : "dbl",
+      "u" : "mm",
+      "v" : 2.3750000000000000
+    },
+    "d04" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "specimen_thickness",
+      "d" : "distance between actuator and sensor, calculated value",
+      "vt" : "dbl",
+      "u" : "mm",
+      "v" : 49.9600000000000009
+    },
+    "a01" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "testname",
+      "d" : "test name",
+      "v" : "Ultrasonic measurement distance test 1 (caliper, spacer)"
+    },
+    "a02" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "operator",
+      "d" : "operator name",
+      "v" : "Jakob Harden (jakob.harden@tugraz.at)"
+    },
+    "a03" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "procedure",
+      "d" : "procedure description",
+      "v" : ["(1) apply steel washer in hutches on both sides of specimen", "(2) measure total distance using a sliding caliper (thickness of specimen plus 2 times thickness of washer)"]
+    },
+    "a04" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "calculation",
+      "d" : "calculation description, formula",
+      "v" : ["specimen_thickness = total_distance - (2 * spacer_thickness)"]
+    },
+    "a05" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description",
+      "d" : "general description",
+      "v" : "Compression wave measurement, mold I"
+    }
+  }
+}

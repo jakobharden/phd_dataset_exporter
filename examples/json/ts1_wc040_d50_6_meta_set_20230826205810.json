@@ -1,0 +1,173 @@
+{
+  "ts1_wc040_d50_6_meta_set" : {
+    "obj" : "struct_metaset",
+    "ver" : [1, 0],
+    "r01" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "author",
+      "d" : "author reference",
+      "i" : 1,
+      "r" : ["aut"]
+    },
+    "r02" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "series",
+      "d" : "test series reference",
+      "i" : 1,
+      "r" : ["meta_ser"]
+    },
+    "r03" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "location",
+      "d" : "location reference",
+      "i" : 1,
+      "r" : ["loc"]
+    },
+    "r04" : {
+      "obj" : "ARE",
+      "ver" : [1, 0],
+      "t" : "license",
+      "d" : "license reference",
+      "i" : 2,
+      "r" : ["lic"]
+    },
+    "d01" : {
+      "obj" : "ADE",
+      "ver" : [1, 0],
+      "t" : "dataset_id",
+      "d" : "data set id",
+      "vt" : "uint",
+      "u" : null,
+      "v" : 84
+    },
+    "a01" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "dataset_code",
+      "d" : "data set code",
+      "v" : "ts1_wc040_d50_6"
+    },
+    "a02" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "dataset_name",
+      "d" : "data set name",
+      "v" : "data set ts1_wc040_d50_6"
+    },
+    "a03" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description",
+      "d" : "description, general",
+      "v" : "The data set was compiled with GNU octave 6.2.0 using the built in binary file format (*.oct)."
+    },
+    "a04" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description_abstract",
+      "d" : "description, abstract",
+      "v" : ["Data set parameters:", "w/c-ratio = 0.40", "distance = 50mm", "pass = 6"]
+    },
+    "a05" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description_methods",
+      "d" : "description, methods",
+      "v" : ["Ultrasonic pulse transmission tests (combined compression- and shear wave measurements)", "Density tests (gravimetric)", "Distance measurements", "Temperature tests (thermocouples, temperature logger)"]
+    },
+    "a06" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "description_tableofcontents",
+      "d" : "description, tableofcontents",
+      "v" : ["Data set ... dataset", "(1) Test series metadata ... dataset.meta_ser", "(2) Data set metadata ... dataset.meta_set", "(3) Location information ... dataset.loc", "(4) License information ... dataset.lic", "(5) Author information ... dataset.aut", "(6) Device information ... dataset.dev", "(7) Material information ... dataset.mat", "(8) Mixture recipe information ... dataset.rec", "(9) Mixture information ... dataset.mix", "(10) Specimen information ... dataset.spm", "(11) Test collection ... dataset.tst", "(11.1) Fresh paste density test ... dataset.tst.s01", "(11.2) Solid specimen density test 1 (gravimetric, immersion weighing) ... dataset.tst.s02", "(11.3) Solid specimen density test 1 (gravimetric, immersion weighing) ... dataset.tst.s03", "(11.4) Ultrasonic measurement distance test 1 (caliper, spacer) ... dataset.tst.s04", "(11.5) Ultrasonic measurement distance test 1 (caliper, spacer) ... dataset.tst.s05", "(11.6) Ultrasonic pulse transmission test ... dataset.tst.s06", "(11.7) Ultrasonic pulse transmission test ... dataset.tst.s07", "(11.8) Specimen temperature test ... dataset.tst.s08"]
+    },
+    "a07" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "created_by",
+      "d" : "data set creator name",
+      "v" : "Harden, Jakob (jakob.harden@tugraz.at)"
+    },
+    "a08" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "collected_by",
+      "d" : "data set collector name",
+      "v" : "Harden, Jakob (jakob.harden@tugraz.at)"
+    },
+    "a09" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "copyrighted_by",
+      "d" : "data set copyrighter name",
+      "v" : "Harden, Jakob (jakob.harden@tugraz.at)"
+    },
+    "a10" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "date_created",
+      "d" : "date created",
+      "v" : "2021-03-15"
+    },
+    "a11" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "date_collected",
+      "d" : "date collected",
+      "v" : "2023-01-03"
+    },
+    "a12" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "date_copyrighted",
+      "d" : "date copyrighted",
+      "v" : "2023-01-03"
+    },
+    "a13" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "size",
+      "d" : "data set size, number of files",
+      "v" : "1 file"
+    },
+    "a14" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "format",
+      "d" : "data set file format",
+      "v" : "application/octet-stream"
+    },
+    "a15" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "version",
+      "d" : "data set version",
+      "v" : "1.0"
+    },
+    "a16" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "context",
+      "d" : "data set context",
+      "v" : "This data set is part of the PhD thesis of Jakob Harden."
+    },
+    "a17" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "rawdata_directory",
+      "d" : "data set rawdata directory",
+      "v" : "ts1_wc040_d50_6"
+    },
+    "a18" : {
+      "obj" : "AAE",
+      "ver" : [1, 0],
+      "t" : "rawdata_archive",
+      "d" : "data set rawdata archive",
+      "v" : "ts1_wc040_d50_6.zip"
+    }
+  }
+}
