@@ -18,7 +18,7 @@ The **Dataset Exporter** is a script collection that allows exporting data from 
 
 ## Licence
 
-All files published under the **DOI 10.3217/9adsn-8dv64** are licenced under the [MIT licence](https://opensource.org/license/mit/).
+All files published under the **DOI 10.3217/d3p6m-w7d64** are licenced under the [MIT licence](https://opensource.org/license/mit/).
 
 	Copyright 2023 Jakob Harden (jakob.harden@tugraz.at, Graz University of Technology, Graz, Austria)
 	License: MIT
@@ -51,6 +51,7 @@ All scripts files (*.m) are plain text files written in the scientific programmi
    ├── dsexporter_examples.m   
    ├── dsexporter_settings.m   
    ├── dsexporter_sig2csv.m   
+   ├── dsexporter_sig2snd.m   
    ├── dsexporter_substruct2json.m   
    ├── dsexporter_substruct2tex.m   
    ├── dsexporter_substruct.m   
@@ -105,6 +106,7 @@ All scripts files (*.m) are plain text files written in the scientific programmi
 - dsexporter\_examples.m ... function file, Script to reproduce all export examples
 - dsexporter\_settings.m ... function file, Create data structure containing the dataset export settings
 - dsexporter\_sig2csv.m ... function file, Export selected signal data to CSV file (compression- or shear wave signals)
+- dsexporter\_sig2snd.m ... function file, Export selected signal data to sound file (compression- or shear wave signals)
 - dsexporter\_tem2csv.m ... function file, Export selected temperature data to CSV file (specimen temperature tests)
 - dsexporter\_substruct.m ... function file, Export a dataset substructure to a variable
 - dsexporter\_substruct2json.m ... function file, Export a dataset substructure to a file in JSON structure format
@@ -113,6 +115,7 @@ All scripts files (*.m) are plain text files written in the scientific programmi
 - README.md ... this file
 - **examples** ... directory, various examples for exported data (CSV, JSON, LaTeX, TeX)
   - **examples/csv** ... subdirectory, examples for CSV exports created with function file *dsexporter\_examples.m*
+  - **examples/snd** ... subdirectory, examples for sound file exports created with function file *dsexporter\_examples.m*
   - **examples/json** ... subdirectory, examples for JSON exports created with function file *dsexporter\_examples.m*
   - **examples/latex** ... subdirectory, examples for LaTeX exports created with function file *dsexporter\_examples.m*
   - examples/latex/example.bib, TeX bibliography, bibliography file, minimal working LaTeX export example
@@ -193,6 +196,7 @@ The functions can be used either in interactive or non-interactive mode. In inte
    octave: >> dsexporter_examples(); 
    octave: >> [ss] = dsexporter_settings(); 
    octave: >> [fp1, fp2] = dsexporter_sig2csv(p_ss, p_odp, p_ifp, p_cn, p_si, p_i0, p_i1, p_del);   
+   octave: >> [fp] = dsexporter_sig2snd(p_ss, p_odp, p_ifp, p_cn, p_si, p_ff, p_fs);   
    octave: >> [fp1, fp2] = dsexporter_tem2csv(p_ss, p_odp, p_ifp, p_tcn, p_del);   
    octave: >> [ds] = dsexporter_substruct(p_ss, p_fp, p_sp);   
    octave: >> [fp] = dsexporter_substruct2json(p_ss, p_odp, p_ifp, p_dsp);   
@@ -244,6 +248,14 @@ Another tool, implemented in the programming language of GNU Octave 6.2.0, allow
 ### 2023-08-26, release, version 1.0
 
 - published/released version 1.0, by Jakob Harden   
-- url: (Repository of Graz University of Technology)[https://doi.org/10.3217/9adsn-8dv64]   
+- url: [https://doi.org/10.3217/9adsn-8dv64](Repository of Graz University of Technology)   
 - doi: 10.3217/9adsn-8dv64   
+
+### 2023-12-09, release, version 1.1
+
+- published/released version 1.1, by Jakob Harden   
+- added sound file export function and sound file examples
+- url: [https://doi.org/10.3217/d3p6m-w7d64](Repository of Graz University of Technology)   
+- doi: 10.3217/d3p6m-w7d64   
+
 

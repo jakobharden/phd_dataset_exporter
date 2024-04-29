@@ -50,6 +50,10 @@ function dsexporter_examples()
   
   ## specimen temperature data export
   example_temdata_csv(ds);
+  
+  ## sound file export
+  ## new in version 1.1
+  example_sigdata_snd(ds);
 
 endfunction
 
@@ -233,5 +237,35 @@ function example_temdata_csv(p_ds)
   ## export specimen temperature measurement data
   tcn = 6; # export all channels (channel selection No. 6)
   ofp = dsexporter_tem2csv(ss, odp, p_ds, tcn, coldel);
+  
+endfunction
+
+function example_sigdata_snd(p_ds)
+  ## Reproduce sound file export example
+  ##
+  ## p_ds ... dataset data structure, <struct_dataset>
+  
+  ## load export settings
+  ss = dsexporter_settings();
+  ## append time code to filename
+  ss.fn_append_tmcode = false;
+  
+  ## output directory path (local directory: "./examples/snd")
+  odp = fullfile('.', 'examples', 'snd');
+  
+  ## export ultrasonic measurement data, compression wave, mono sound file
+  cid = 1; # select channel 1, compression wave
+  sids = [10, 20, 30, 40, 50, 100, 150, 200, 288]; # selected signal id's
+  fmt = 'wav'; # sound file output format
+  fs = 5000; # sound file sampling rate
+  ofp = dsexporter_sig2snd(ss, odp, p_ds, cid, sids, fmt, fs);
+  
+  ## export ultrasonic measurement data, shear wave, mono sound file
+  cid = 2; # select channel 2, shear wave
+  ofp = dsexporter_sig2snd(ss, odp, p_ds, cid, sids, fmt, fs);
+  
+  ## export ultrasonic measurement data, shear wave, stereo sound file
+  cid = 3; # select channel 1 and 2, compression and shear wave
+  ofp = dsexporter_sig2snd(ss, odp, p_ds, cid, sids, fmt, fs);
   
 endfunction
