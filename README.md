@@ -2,23 +2,24 @@
 
 The **Dataset Exporter** is a script collection that allows exporting data from datasets made from measurement data of ultrasonic pulse transmission tests. The main features cover the export of substructures to variables and the serialization to the CSV format, the JSON structure format and TeX code.
 
-[!INFO]
-The entire content of this script collection was conceived, implemented and tested by Jakob Harden using the scientific numerical programming language of GNU Octave 6.2.0.
+> [!NOTE]
+> The entire content of this script collection was conceived, implemented and tested by Jakob Harden using the scientific numerical programming language of GNU Octave 6.2.0.
+
 
 ## Table of contents
 
-- Licence
-- Prerequisites
-- Directory and file structure
-- Installation instructions
-- Usage instructions
-- Help and Documentation
-- Related data sources
-- Related software
-- Revision and release history
+- [License](#license)
+- [Prerequisites](#prerequisites)
+- [Directory and file structure](#directory-and-file-structure)
+- [Installation instructions](#installation-instructions)
+- [Usage instructions](#usage-instructions)
+- [Help and Documentation](#help-and-documentation)
+- [Related data sources](#related-data-sources)
+- [Related software](#related-software)
+- [Revision and release history](#revision-and-release-history)
 
 
-## Licence
+## License
 
 All files published under the **DOI 10.3217/d3p6m-w7d64** are licenced under the [MIT licence](https://opensource.org/license/mit/).
 
@@ -47,7 +48,7 @@ GNU Octave is available via the package management system on many Linux distribu
 
 ## Directory and file structure
 
-All scripts files (*.m) are plain text files written in the scientific programming language of GNU Octave 6.2.0.
+All scripts files (*.m) are UTF-8 encoded plain text files written in the scientific programming language of GNU Octave 6.2.0.
 
 ```   
    dsexporter/   
@@ -239,8 +240,8 @@ The referenced datasets are compiled from raw data using a dataset compilation t
 
 - Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Data set compiler (1.1)". Graz University of Technology. [doi: 10.3217/6qg3m-af058](https://doi.org/10.3217/6qg3m-af058)
 
-[!NOTE]
-*Dataset Compiler* is also available on **github**. [Dataset Compiler](https://github.com/jakobharden/phd_dataset_compiler)
+> [!NOTE]
+> *Dataset Compiler* is also available on **github**. [Dataset Compiler](https://github.com/jakobharden/phd_dataset_compiler)
 
 
 ### Dataset Viewer, version 1.0:
@@ -249,8 +250,8 @@ The referenced datasets are compiled from raw data using a dataset compilation t
 
 - Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Dataset Viewer (1.0)". Graz University of Technology. [doi: 10.3217/c1ccn-8m982](https://doi.org/10.3217/c1ccn-8m982)
 
-[!NOTE]
-*Dataset Viewer* is also available on **github**. [Dataset Viewer](https://github.com/jakobharden/phd_dataset_viewer)
+> [!NOTE]
+> *Dataset Viewer* is also available on **github**. [Dataset Viewer](https://github.com/jakobharden/phd_dataset_viewer)
 
 
 ## Revision and release history
