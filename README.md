@@ -169,14 +169,14 @@ All scripts files (*.m) are UTF-8 encoded plain text files written in the scient
 
 ## Installation instructions
 
-1. Copy the program directory to a location of your choice. e.g. **working_directory**.   
+1. Copy the program directory to a location of your choice. e.g. **workdir**.   
 2. Open GNU Octave.   
-3. Change the working directory to the program directory. e.g. **working_directory**.   
+3. Change the working directory to the program directory. e.g. **workdir**.   
 
 
 ## Usage instructions
 
-1. Adjust the settings in the function files: dsexporter\_settings.m, ./json/json\_settings.m, ./tex/tex\_settings.m   
+1. Adjust the settings in the function files: dsexporter\_settings.m, ./json/json\_settings.m, ./tex/tex\_settings.m to your requirements.   
 2. Run GNU Octave.   
 3. Initialize program.   
 4. Execute any of the function files.   
