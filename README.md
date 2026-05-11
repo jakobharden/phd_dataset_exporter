@@ -1,6 +1,6 @@
-# Dataset Exporter, version 1.0
+# Dataset Exporter, version 1.2
 
-The **Dataset Exporter** is a script collection that allows exporting data from datasets made from measurement data of ultrasonic pulse transmission tests. The main features cover the export of substructures to variables and the serialization to the CSV format, the JSON structure format and TeX code.
+The **Dataset Exporter** is a script collection that allows exporting data from datasets made from measurement data of ultrasonic pulse transmission tests. The main features cover the export of substructures to variables and the serialisation to the CSV format, the JSON structure format and LaTeX code.
 
 > [!NOTE]
 > The entire content of this script collection was conceived, implemented and tested by Jakob Harden using the scientific numerical programming language of GNU Octave 6.2.0.
@@ -21,9 +21,9 @@ The **Dataset Exporter** is a script collection that allows exporting data from 
 
 ## License
 
-All files published under the **DOI 10.3217/d3p6m-w7d64** are licenced under the [MIT licence](https://opensource.org/license/mit/).
+All files published under the **DOI 10.3217/xxxxxx** are licenced under the [MIT licence](https://opensource.org/license/mit/).
 
-	Copyright 2023 Jakob Harden (jakob.harden@tugraz.at, Graz University of Technology, Graz, Austria)
+	Copyright 2026 Jakob Harden (jakob.harden@tugraz.at, Graz University of Technology, Graz, Austria)
 	License: MIT
 	This file is part of the PhD thesis of Jakob Harden.
 	
@@ -40,8 +40,8 @@ All files published under the **DOI 10.3217/d3p6m-w7d64** are licenced under the
 
 ## Prerequisites
 
-To be able to use the scripts, GNU Octave 6.2.0 (or a higher version) need to be installed.
-GNU Octave is available via the package management system on many Linux distributions. Windows users have to download the Windows version of GNU Octave and to install the software manually.
+To be able to use the scripts, GNU Octave 6.2.0 (or more recent version) need to be installed.
+GNU Octave is available via the package management system on many Linux distributions. Windows users need to download the Windows version of GNU Octave and to install the software manually.
 
 [GNU Octave download](https://octave.org/download)
 
@@ -52,6 +52,8 @@ All scripts files (*.m) are UTF-8 encoded plain text files written in the scient
 
 ```   
    dsexporter/   
+   ├── dsexporter_convert_to_hdf5.m  
+   ├── dsexporter_convert_to_matlab.m  
    ├── dsexporter_examples.m   
    ├── dsexporter_settings.m   
    ├── dsexporter_sig2csv.m   
@@ -107,6 +109,8 @@ All scripts files (*.m) are UTF-8 encoded plain text files written in the scient
 ```
 
 - init.m ... function file, Initialize program: Dataset Exporter, version 1.0
+- dsexporter\_convert\_to\_hdf5.m ... function file, Convert GNU Octave binary files (data sets) to the HDF5 binary format
+- dsexporter\_convert\_to\_matlab.m ... function file, Convert GNU Octave binary files (data sets) to the MatLAB binary format
 - dsexporter\_examples.m ... function file, Script to reproduce all export examples
 - dsexporter\_settings.m ... function file, Create data structure containing the dataset export settings
 - dsexporter\_sig2csv.m ... function file, Export selected signal data to CSV file (compression- or shear wave signals)
@@ -178,16 +182,16 @@ All scripts files (*.m) are UTF-8 encoded plain text files written in the scient
 
 1. Adjust the settings in the function files: dsexporter\_settings.m, ./json/json\_settings.m, ./tex/tex\_settings.m to your requirements.   
 2. Run GNU Octave.   
-3. Initialize program.   
+3. Initialise program.   
 4. Execute any of the function files.   
 
 
 ### Initialize program
 
-The 'init' command initializes the program. This is only required once before executing all the other functions. The command is adding the subdirectories included in the main program directory to the 'path' environment variable.
+The 'init' command initialises the program. This is only required once before executing all the other functions. The command is adding the subdirectories included in the main program directory to the 'path' environment variable.
 
 ```
-   octave: >> init;   
+   octave: >> init();   
 ```
 
 
@@ -197,16 +201,22 @@ The following commands are the main functions of the program. The function param
 The functions can be used either in interactive or non-interactive mode. In interactive mode, dialogue windows are used and user input is expected. That mode is always activated when necessary or all function parameters are missing.
 
 ```
-   octave: >> dsexporter_examples(); 
-   octave: >> [ss] = dsexporter_settings(); 
-   octave: >> [fp1, fp2] = dsexporter_sig2csv(p_ss, p_odp, p_ifp, p_cn, p_si, p_i0, p_i1, p_del);   
-   octave: >> [fp] = dsexporter_sig2snd(p_ss, p_odp, p_ifp, p_cn, p_si, p_ff, p_fs);   
-   octave: >> [fp1, fp2] = dsexporter_tem2csv(p_ss, p_odp, p_ifp, p_tcn, p_del);   
-   octave: >> [ds] = dsexporter_substruct(p_ss, p_fp, p_sp);   
-   octave: >> [fp] = dsexporter_substruct2json(p_ss, p_odp, p_ifp, p_dsp);   
-   octave: >> [fp] = dsexporter_substruct2tex(p_ss, p_odp, p_ifp, p_dsp);     
+   octave: >> dsexporter_examples(); # execute a demo for all commands below   
+   octave: >> [ss] = dsexporter_settings(); # load export settings   
+   octave: >> [fp1, fp2] = dsexporter_sig2csv(p_ss, p_odp, p_ifp, p_cn, p_si, p_i0, p_i1, p_del); # export ultrasound signal data to CVS files   
+   octave: >> [fp] = dsexporter_sig2snd(p_ss, p_odp, p_ifp, p_cn, p_si, p_ff, p_fs); # export ultrasound signal data to waveform audio files (*.wav)   
+   octave: >> [fp1, fp2] = dsexporter_tem2csv(p_ss, p_odp, p_ifp, p_tcn, p_del); # export specimen temperature recordings to CSV files   
+   octave: >> [ds] = dsexporter_substruct(p_ss, p_fp, p_sp); # export a substructure from a data set to a GNU Octave structure stored in a variable   
+   octave: >> [fp] = dsexporter_substruct2json(p_ss, p_odp, p_ifp, p_dsp); # export a substructure from a data set to the JSON structure format   
+   octave: >> [fp] = dsexporter_substruct2tex(p_ss, p_odp, p_ifp, p_dsp); # export a substructure from a data set to a LaTeX code file   
 ```
 
+Additionally, there are two more commands available that allow to convert the GNU Octave binary file format to the HDF5 and MATLAB binary file format.
+
+```
+   octave: >> dsexporter_convert_to_hdf5(p_ip, p_op); # convert a data set from the GNU Octave binary file format to the HDF5 binary file format   
+   octave: >> dsexporter_convert_to_matlab(p_ip, p_op); # convert a data set from the GNU Octave binary file format to the MATLAB binary file format    
+```
 
 ## Help and Documentation
 
@@ -229,16 +239,17 @@ Datasets from which data can be exported with these scripts are made available a
 - Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 4, Cement Paste at Early Stages". Graz University of Technology. [doi: 10.3217/f62md-kep36](https://doi.org/10.3217/f62md-kep36)   
 - Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 5, Reference Tests on Air". Graz University of Technology. [doi: 10.3217/bjkrj-pg829](https://doi.org/10.3217/bjkrj-pg829)   
 - Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 6, Reference Tests on Water". Graz University of Technology. [doi: 10.3217/hn7we-q7z09](https://doi.org/10.3217/hn7we-q7z09)   
-- Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 7, Reference Tests on Aluminium Cylinder". Graz University of Technology. [doi: 10.3217/azh6e-rvy75](https://doi.org/10.3217/azh6e-rvy75)   
+- Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 7, Reference Tests on Aluminium Cylinder". Version 1.0. Graz University of Technology. [doi: 10.3217/azh6e-rvy75](https://doi.org/10.3217/azh6e-rvy75)   
+- Harden, J. (2025) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 7, Reference Tests on Aluminium Cylinder". Version 1.1. Graz University of Technology. [doi: 10.3217/w3mb5-1wx17](https://doi.org/10.3217/w3mb5-1wx17)   
 
 
 ## Related software
 
-### Dataset Compiler, version 1.1:
+### Dataset Compiler, version 1.2:
 
-The referenced datasets are compiled from raw data using a dataset compilation tool implemented in the programming language of GNU Octave 6.2.0. To understand the structure of the datasets, it is a good idea to look at the soure code of that tool. Therefore, it was made publicly available under the MIT license at the repository of Graz University of Technology.
+The referenced datasets are compiled from raw data using a dataset compilation tool implemented in the programming language of GNU Octave 6.2.0. To understand the structure of the datasets, it is a good idea to look at the source code of that tool. Therefore, it was made publicly available under the MIT license at the repository of Graz University of Technology.
 
-- Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Data set compiler (1.1)". Graz University of Technology. [doi: 10.3217/6qg3m-af058](https://doi.org/10.3217/6qg3m-af058)
+- Harden, J. (2025) "Ultrasonic Pulse Transmission Tests: Data set compiler (1.2)". Graz University of Technology. [doi: 10.3217/bcydt-6ta35](https://doi.org/10.3217/bcydt-6ta35)
 
 > [!NOTE]
 > *Dataset Compiler* is also available on **github**. [Dataset Compiler](https://github.com/jakobharden/phd_dataset_compiler)
@@ -259,13 +270,20 @@ The referenced datasets are compiled from raw data using a dataset compilation t
 ### 2023-08-26, release, version 1.0
 
 - published/released version 1.0, by Jakob Harden   
-- url: [https://doi.org/10.3217/9adsn-8dv64](Repository of Graz University of Technology)   
+- url: [https://doi.org/10.3217/9adsn-8dv64](https://doi.org/10.3217/9adsn-8dv64)   
 - doi: 10.3217/9adsn-8dv64   
 
 ### 2023-12-09, release, version 1.1
 
 - published/released version 1.1, by Jakob Harden   
 - added sound file export function and sound file examples
-- url: [https://doi.org/10.3217/d3p6m-w7d64](Repository of Graz University of Technology)   
+- url: [https://doi.org/10.3217/d3p6m-w7d64](https://doi.org/10.3217/d3p6m-w7d64)   
 - doi: 10.3217/d3p6m-w7d64   
+
+### 2026-05-10, release, version 1.2
+
+- published/released version 1.2, by Jakob Harden   
+- added scripts to convert GNU Octave binary files to the HDF5 and MatLAB binary file format
+- url: [https://doi.org/10.5281/zenodo.20116209](https://doi.org/10.5281/zenodo.20116209)   
+- doi: 10.5281/zenodo.20116209   
 
