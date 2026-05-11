@@ -21,7 +21,7 @@ The **Dataset Exporter** is a script collection that allows exporting data from 
 
 ## License
 
-All files published under the **DOI 10.3217/xxxxxx** are licenced under the [MIT licence](https://opensource.org/license/mit/).
+All files published under the **DOI 10.5281/zenodo.20116209** are licenced under the [MIT licence](https://opensource.org/license/mit/).
 
 	Copyright 2026 Jakob Harden (jakob.harden@tugraz.at, Graz University of Technology, Graz, Austria)
 	License: MIT
